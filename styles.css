@@ -8,6 +8,10 @@ body {
     font-family: system-ui, sans-serif, arial, Helvetica;
     margin: 0;
     padding: 20px;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .container {
@@ -44,7 +48,7 @@ h1 {
 
 .input-section,
 .add-transaction {
-    margin: 20px 0px;
+    margin: 10px 0px;
     display: flex;
     gap: 10px;
     align-items: center;
