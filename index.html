@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCA Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 style="font-weight: 900;">Monitor Your Stack</h1>
+        <div class="input-section">
+            <label>Current market price: </label>
+            <input type="number" id="currentPrice" min="0" step="0.01" placeholder="Enter current price">
+        </div>
+        <div style="display: flex; width: 100%; justify-content: space-between;">
+            <div id="totals" class="totals-section"></div>
+            <div id="logo" class="logo" style="width: fit-content; height: fit-content;">
+                <img src="bitcoin.png" width="150px">
+            </div>
+        </div>
+        <div class="add-transaction">
+            <input type="date" id="dateInput" required>
+            <input type="number" id="usdInput" min="0" step="0.01" placeholder="USD Used" required>
+            <input type="number" id="buyPriceInput" min="0" step="0.01" placeholder="Buy Price" required>
+            <input type="number" id="quantityInput" min="0" step="0.0001" placeholder="Amount" required>
+            <button onclick="addTransaction()">Add Transaction</button>
+        </div>
+        <table id="dcaTable">
+            <thead>
+                <tr>
+                    <th>DATE</th>
+                    <th>USD USED</th>
+                    <th>BUY PRICE</th>
+                    <th>AMOUNT</th>
+                    <th>ACTUAL VALUE</th>
+                    <th>P&L</th>
+                    <th>ROI (%)</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

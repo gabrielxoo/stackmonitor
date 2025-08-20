@@ -1,0 +1,200 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, sans-serif, arial, Helvetica;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+#totals {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+#totals h3 {
+    color: #535353;
+    margin: 1px 0;
+}
+
+#totals strong {
+    color: #535353;
+}
+
+#totals p {
+    margin: 1px 0;
+    font-weight: normal;
+}
+
+.input-section,
+.add-transaction {
+    margin: 20px 0px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+input[type="number"],
+input[type="date"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.delete-td {
+    text-align: center;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ececec;
+    padding: 4px;
+}
+
+th {
+    background-color: #003c7c;
+    color: white;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* td:first-child,
+th:first-child {
+    text-align: left;
+} */
+
+tfoot td {
+    font-weight: bold;
+    background-color: #f8f9fa;
+}
+
+@media (max-width: 800px) {
+    #dcaTable th {
+        padding: 5px;
+        text-align: left;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        padding: 1px;
+    }
+
+    #dateInput,
+    #usdInput,
+    #buyPriceInput,
+    #quantityInput {
+        width: 100%;
+    }
+
+    .input-section,
+    .add-transaction {
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+    }
+
+    input,
+    button {
+        width: 100%;
+    }
+
+    #dcaTable {
+        font-size: 12px;
+    }
+
+    #dcaTable th {
+        padding: 5px;
+        text-align: left;
+        font-size: 10px;
+    }
+
+    #dcaTable td {
+        padding: 5px;
+    }
+
+    .delete-btn {
+        font-size: 10px;
+    }
+}
+
+
+@media (max-width: 450px) {
+
+    .input-section,
+    .add-transaction {
+        flex-direction: column;
+    }
+
+    input,
+    button {
+        width: 100%;
+    }
+
+    #dcaTable thead tr th {
+        font-size: 10px;
+    }
+
+    #totals {
+        font-size: 12px;
+    }
+
+    #logo img {
+        width: 100px;
+    }
+
+    .delete-btn {
+        font-size: 10px;
+    }
+}
