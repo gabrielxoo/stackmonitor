@@ -5,10 +5,9 @@
 }
 
 body {
-    font-family: system-ui, sans-serif, arial, Helvetica;
-    margin: 0;
+    font-family: system-ui, -apple-system, Arial, Helvetica, sans-serif;
     padding: 20px;
-    height: 100dvh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -24,21 +23,20 @@ body {
 h1 {
     text-align: center;
     color: #333;
+    font-size: 24px;
 }
 
 #totals {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    font-size: 16px;
 }
 
-#totals h3 {
-    color: #535353;
-    margin: 1px 0;
-}
-
+#totals h3,
 #totals strong {
     color: #535353;
+    margin: 1px 0;
 }
 
 #totals p {
@@ -46,9 +44,15 @@ h1 {
     font-weight: normal;
 }
 
+.metrics-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .input-section,
 .add-transaction {
-    margin: 10px 0px;
+    margin: 10px 0;
     display: flex;
     gap: 10px;
     align-items: center;
@@ -74,10 +78,6 @@ button {
 
 button:hover {
     background-color: #218838;
-}
-
-.delete-td {
-    text-align: center;
 }
 
 .delete-btn {
@@ -107,48 +107,44 @@ th {
     text-align: left;
 }
 
-/* td:first-child,
-th:first-child {
-    text-align: left;
-} */
-
 tfoot td {
     font-weight: bold;
     background-color: #f8f9fa;
 }
 
+.delete-td {
+    text-align: center;
+}
+
+/* Media Queries */
 @media (max-width: 800px) {
     #dcaTable th {
         padding: 5px;
-        text-align: left;
         font-size: 10px;
     }
 }
 
 @media (max-width: 600px) {
-
     body {
         padding: 10px;
     }
 
     .container {
         padding: 1px;
-    }
-
-    #dateInput,
-    #usdInput,
-    #buyPriceInput,
-    #quantityInput {
         width: 100%;
     }
 
     .input-section,
     .add-transaction {
         flex-direction: column;
-        width: 100%;
         justify-content: center;
+        width: 100%;
     }
 
+    #dateInput,
+    #usdInput,
+    #buyPriceInput,
+    #quantityInput,
     input,
     button {
         width: 100%;
@@ -158,47 +154,30 @@ tfoot td {
         font-size: 12px;
     }
 
-    #dcaTable th {
-        padding: 5px;
-        text-align: left;
-        font-size: 10px;
-    }
-
+    #dcaTable th,
     #dcaTable td {
         padding: 5px;
+    }
+
+    #dcaTable th {
+        font-size: 10px;
     }
 
     .delete-btn {
         font-size: 10px;
     }
+
+    #logo img {
+        max-width: 120px;
+    }
 }
 
-
 @media (max-width: 450px) {
-
-    .input-section,
-    .add-transaction {
-        flex-direction: column;
-    }
-
-    input,
-    button {
-        width: 100%;
-    }
-
-    #dcaTable thead tr th {
-        font-size: 10px;
-    }
-
     #totals {
         font-size: 12px;
     }
 
     #logo img {
-        width: 100px;
-    }
-
-    .delete-btn {
-        font-size: 10px;
+        max-width: 100px;
     }
 }
