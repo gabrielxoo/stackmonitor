@@ -41,10 +41,9 @@ function saveTransactions() {
 
 function renderTable() {
     const tableBody = document.getElementById('tableBody');
-    const totalsDiv = document.getElementById('totals'); // Reference the totals div
+    const totalsDiv = document.getElementById('totals');
     const currentPrice = parseFloat(document.getElementById('currentPrice').value) || 0;
 
-    // Clear table and totals
     tableBody.innerHTML = '';
     totalsDiv.innerHTML = '';
 
@@ -52,20 +51,23 @@ function renderTable() {
     let totalQuantity = 0;
     let totalValue = 0;
 
-    // Populate table rows
     transactions.forEach((t, index) => {
-        const quantity = t.quantity || t.usd / t.buyPrice; // Fallback for old transactions
-        const actualValue = quantity * currentPrice; // Calculate Actual Value
-        const pl = actualValue - t.usd; // Calculate P&L
-        const roi = t.usd !== 0 ? (pl / t.usd) * 100 : 0; // Calculate ROI
+        const quantity = t.quantity || t.usd / t.buyPrice;
+        const actualValue = quantity * currentPrice;
+        const pl = actualValue - t.usd;
+        const roi = t.usd !== 0 ? (pl / t.usd) * 100 : 0;
 
         totalUsd += t.usd;
         totalQuantity += quantity;
         totalValue += actualValue;
 
+        // Procesar la fecha para evitar el ajuste de zona horaria
+        const [year, month, day] = t.date.split('-'); // Divide la fecha en YYYY-MM-DD
+        const formattedDate = new Date(year, month - 1, day).toLocaleDateString(); // Meses en JS son 0-indexados
+
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td>${new Date(t.date).toLocaleDateString()}</td>
+            <td>${formattedDate}</td>
             <td>$${t.usd.toFixed(2)}</td>
             <td>${t.buyPrice.toFixed(0)}</td>
             <td>${quantity.toFixed(8)}</td>
@@ -77,9 +79,8 @@ function renderTable() {
         tableBody.appendChild(row);
     });
 
-    // Populate totals section with "TOTAL USD USED IN BUYS" emphasized
-    const totalPl = totalValue - totalUsd; // Total P&L
-    const totalRoi = totalUsd !== 0 ? (totalPl / totalUsd) * 100 : 0; // Total ROI
+    const totalPl = totalValue - totalUsd;
+    const totalRoi = totalUsd !== 0 ? (totalPl / totalUsd) * 100 : 0;
     const avgBuyPrice = totalQuantity !== 0 ? totalUsd / totalQuantity : 0;
 
     totalsDiv.innerHTML = `
