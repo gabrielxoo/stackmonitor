@@ -86,9 +86,14 @@ button {
     text-decoration: underline;
 }
 
-.donation-section{
+.donation-section {
     background: #fff4e1;
     padding: 10px;
+}
+
+.tooltip {
+    display: none;
+
 }
 
 button:hover {
