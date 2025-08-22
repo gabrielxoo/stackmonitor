@@ -76,6 +76,21 @@ button {
     cursor: pointer;
 }
 
+.url-box {
+    cursor: pointer;
+    margin: 3px 0px;
+    width: fit-content;
+}
+
+.url-box:hover {
+    text-decoration: underline;
+}
+
+.donation-section{
+    background: #fff4e1;
+    padding: 10px;
+}
+
 button:hover {
     background-color: #218838;
 }

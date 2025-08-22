@@ -5,6 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('currentPrice').addEventListener('input', renderTable);
 });
 
+function copyToClipboard() {
+    const url = "gabrielxoo@coinos.io"; // Replace with your URL
+    navigator.clipboard.writeText(url).then(() => {
+        const tooltip = document.getElementById("tooltip");
+        tooltip.style.display = "inline";
+        setTimeout(() => {
+            tooltip.style.display = "none";
+        }, 1000); // Hide tooltip after 1 second
+    }).catch(err => {
+        console.error('Failed to copy: ', err);
+    });
+}
+
 function addTransaction() {
     const date = document.getElementById('dateInput').value;
     const usd = parseFloat(document.getElementById('usdInput').value);

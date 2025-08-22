@@ -11,7 +11,21 @@
 <body>
     <div class="container">
         <h1 style="font-weight: 900;">Monitor Your Stack</h1>
-        <p style="font-size: 10px;">open-source project</p>
+        <p style="font-size: 10px; margin-bottom: 10px;">open-source project</p>
+        <div class="donation-section">
+            <p style="margin-bottom: 5px; font-size: 14px;">Please donate some sats so I can buy a domain name. For example,
+                stackmonitor.com :)</p>
+            <p class="url-box" onclick="copyToClipboard()" style="font-size: 14px;">gabrielxoo@coinos.io
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 256 256">
+                    <path fill="currentColor"
+                        d="M216 28H88a12 12 0 0 0-12 12v36H40a12 12 0 0 0-12 12v128a12 12 0 0 0 12 12h128a12 12 0 0 0 12-12v-36h36a12 12 0 0 0 12-12V40a12 12 0 0 0-12-12m-60 176H52V100h104Zm48-48h-24V88a12 12 0 0 0-12-12h-68V52h104Z">
+                    </path>
+                </svg>
+                <span class="tooltip" id="tooltip">Copied!</span>
+            </p>
+
+            <img src="raw.jpg" width="50px">
+        </div>
         <div class="input-section">
             <label>Current market price: </label>
             <input type="number" id="currentPrice" min="0" step="0.01" placeholder="Enter current price">
