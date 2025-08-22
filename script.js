@@ -82,7 +82,7 @@ function renderTable() {
         row.innerHTML = `
             <td>${formattedDate}</td>
             <td>$${t.usd.toFixed(2)}</td>
-            <td>${t.buyPrice.toFixed(0)}</td>
+            <td>${t.buyPrice.toFixed(2)}</td>
             <td>${quantity.toFixed(8)}</td>
             <td>$${actualValue.toFixed(2)}</td>
             <td>$${pl.toFixed(2)}</td>
