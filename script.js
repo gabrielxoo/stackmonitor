@@ -1,3 +1,26 @@
+function exportCSV() {
+    if (!transactions.length) {
+        alert('No data to export.');
+        return;
+    }
+    // Get all unique keys from all transactions for header
+    const keys = Array.from(new Set(transactions.flatMap(obj => Object.keys(obj))));
+    const csvRows = [keys.join(",")];
+    transactions.forEach(t => {
+        const row = keys.map(k => t[k] !== undefined ? t[k] : '').join(",");
+        csvRows.push(row);
+    });
+    const csvContent = csvRows.join("\n");
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'transactions.csv';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
 let transactions = JSON.parse(localStorage.getItem('dcaTransactions')) || [];
 
 document.addEventListener('DOMContentLoaded', () => {
