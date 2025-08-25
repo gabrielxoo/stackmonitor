@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function copyToClipboard() {
-    const url = "gabrielxoo@coinos.io"; // Replace with your URL
+    const url = "gabrielxoo@coinos.io";
     navigator.clipboard.writeText(url).then(() => {
         const tooltip = document.getElementById("tooltip");
         tooltip.style.display = "inline";
         setTimeout(() => {
             tooltip.style.display = "none";
-        }, 1000); // Hide tooltip after 1 second
+        }, 1000);
     }).catch(err => {
         console.error('Failed to copy: ', err);
     });
@@ -30,13 +30,13 @@ function addTransaction() {
         return;
     }
 
-    // Store transaction without any calculations
+    // Store transaction
     transactions.push({ date, usd, buyPrice, quantity });
     saveTransactions();
     renderTable();
 
     // Clear inputs
-    document.getElementById('dateInput').value = '';
+    document.getElementById('dateInput').value = ''; // Vacío para que el usuario seleccione una nueva fecha
     document.getElementById('usdInput').value = '';
     document.getElementById('buyPriceInput').value = '';
     document.getElementById('quantityInput').value = '';
@@ -74,9 +74,8 @@ function renderTable() {
         totalQuantity += quantity;
         totalValue += actualValue;
 
-        // Procesar la fecha para evitar el ajuste de zona horaria
-        const [year, month, day] = t.date.split('-'); // Divide la fecha en YYYY-MM-DD
-        const formattedDate = new Date(year, month - 1, day).toLocaleDateString(); // Meses en JS son 0-indexados
+        // Mostrar la fecha directamente en formato YYYY-MM-DD
+        const formattedDate = t.date;
 
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -106,3 +105,25 @@ function renderTable() {
         <p>Total ROI: <strong>${totalRoi.toFixed(2)}%</strong></p>
     `;
 }
+
+function fetchPrice(){
+    fetch('https://api.diadata.org/v1/assetQuotation/Bitcoin/0x0000000000000000000000000000000000000000')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+    data.Price = parseFloat(data.Price).toFixed(2);
+    document.getElementById('currentPrice').value = data.Price;
+    renderTable();
+    // Handle the data
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+
+fetchPrice();

@@ -27,6 +27,49 @@
 
             <img src="raw.jpg" width="50px">
         </div>
+
+        <div class="sponsors-section">
+            <h2>Sponsors</h2>
+            <p style="font-size: 12px; color: #888; margin-bottom: 6px;">show your brand or personal account</p>
+            <div class="sponsors-flex">
+                <a href="https://x.com/gabrielxoo" target="_blank">
+                    <div class="sponsor-stand">
+                        <div class="sponsor-stand_logo">
+                            <span>🏆</span>
+                        </div>
+                        <div style="font-weight: 600; font-size: 16px;">Sponsor</div>
+                        <div style="font-size: 13px; color: #888;">Your logo here</div>
+                        <div style="font-size: 13px; color: #888;">Descript here</div>
+                        <div style="font-size: 13px; color: #888;">9.000 sats/month</div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/gabrielxoo" target="_blank">
+                    <div class="sponsor-stand">
+                        <div class="sponsor-stand_logo">
+                            <span>🌟</span>
+                        </div>
+                        <div style="font-weight: 600; font-size: 16px;">Sponsor</div>
+                        <div style="font-size: 13px; color: #888;">Your logo here</div>
+                        <div style="font-size: 13px; color: #888;">Descript here</div>
+                        <div style="font-size: 13px; color: #888;">9.000 sats/month</div>
+                    </div>
+                </a>
+
+                <a href="https://x.com/gabrielxoo" target="_blank">
+                    <div class="sponsor-stand">
+                        <div class="sponsor-stand_logo">
+                            <span>💎</span>
+                        </div>
+                        <div style="font-weight: 600; font-size: 16px;">Sponsor</div>
+                        <div style="font-size: 13px; color: #888;">Your logo here</div>
+                        <div style="font-size: 13px; color: #888;">Descript here</div>
+                        <div style="font-size: 13px; color: #888;">9.000 sats/month</div>
+
+                    </div>
+                </a>
+            </div>
+        </div>
         <div class="input-section">
             <label>Current market price: </label>
             <input type="number" id="currentPrice" min="0" step="0.01" placeholder="Enter current price">
@@ -44,23 +87,26 @@
             <input type="number" id="buyPriceInput" min="0" step="0.01" placeholder="Buy Price" required>
             <input type="number" id="quantityInput" min="0" step="0.0001" placeholder="Amount" required>
             <button onclick="addTransaction()">Add Transaction</button>
+
             <p style="font-size: 12px;">The data is stored in your local storage.</p>
         </div>
-        <table id="dcaTable">
-            <thead>
-                <tr>
-                    <th>DATE</th>
-                    <th>USD USED</th>
-                    <th>BUY PRICE</th>
-                    <th>AMOUNT</th>
-                    <th>ACTUAL VALUE</th>
-                    <th>P&L</th>
-                    <th>ROI (%)</th>
-                    <th>ACTIONS</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-        </table>
+        <div class="table-responsive">
+            <table id="dcaTable">
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>USD USED</th>
+                        <th>BUY PRICE</th>
+                        <th>AMOUNT</th>
+                        <th>ACTUAL VALUE</th>
+                        <th>P&L</th>
+                        <th>ROI (%)</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
     </div>
     <footer>
         <p style="font-size: 14px;">

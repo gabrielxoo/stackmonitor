@@ -23,7 +23,12 @@ body {
 h1 {
     text-align: center;
     color: #333;
-    font-size: 24px;
+    font-size: 36px;
+}
+
+h2 {
+    color: #333;
+
 }
 
 #totals {
@@ -117,7 +122,7 @@ input[type="date"] {
 
 button {
     padding: 8px 16px;
-    background-color: #28a745;
+    background-color: #333;
     color: white;
     border: none;
     border-radius: 4px;
@@ -145,7 +150,7 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: rgba(90, 90, 90, 0.877)
 }
 
 .delete-btn {
@@ -160,6 +165,13 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
+}
+
+/* Responsive table scroll container */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 th,
@@ -184,6 +196,62 @@ tfoot td {
     text-align: center;
 }
 
+/* Sponsors section responsive styles */
+.sponsors-section {
+    margin: 15px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.sponsors-section h2 {
+    font-size: 16px;
+}
+
+.sponsors-section a {
+    text-decoration: none;
+}
+
+.sponsors-section a:hover {
+    opacity: 0.8;
+}
+
+.sponsors-section .sponsor-stand {
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 5px;
+    width: 180px;
+    box-shadow: 0 2px 8px #0001;
+    margin-bottom: 0;
+}
+
+.sponsors-section .sponsor-stand>div {
+    word-break: break-word;
+}
+
+.sponsors-section .sponsors-flex {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.sponsor-stand_logo {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sponsor-stand span {
+    font-size: 24px;
+}
+
+#dcaTable {
+    margin: 40px 0px;
+}
+
+
+
 /* Media Queries */
 @media (max-width: 800px) {
     #dcaTable th {
@@ -191,6 +259,37 @@ tfoot td {
         font-size: 10px;
     }
 }
+
+@media (max-width: 700px) {
+    .sponsors-section .sponsors-flex {
+        flex-direction: row;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .sponsor-stand_logo {
+        height: fit-content;
+    }
+
+    .sponsors-section .sponsor-stand {
+        width: fit-content;
+        max-width: 350px;
+    }
+
+    .sponsors-section .sponsor-stand span {
+        font-size: 18px;
+    }
+
+    .table-responsive {
+        margin-top: 10px;
+    }
+
+    #dcaTable {
+        min-width: 600px;
+    }
+}
+
+
 
 @media (max-width: 600px) {
     body {
@@ -208,6 +307,15 @@ tfoot td {
         justify-content: center;
         width: 100%;
     }
+
+    .totals-section h3 {
+        font-size: 18px;
+    }
+
+    .totals-section p {
+        font-size: 14px;
+    }
+
 
     #dateInput,
     #usdInput,
@@ -238,14 +346,34 @@ tfoot td {
     #logo img {
         max-width: 120px;
     }
+
 }
 
-@media (max-width: 450px) {
+
+@media (max-width: 495px) {
+
+    h1 {
+        font-size: 24px;
+    }
     #totals {
         font-size: 12px;
     }
 
     #logo img {
-        max-width: 100px;
+        max-width: 60px;
+    }
+
+
+    #dcaTable th {
+        font-size: 10px;
+        width: fit-content;
+    }
+
+    #dcaTable tbody {
+        font-size: 10px;
+    }
+
+    .delete-btn {
+        padding: 5px;
     }
 }
