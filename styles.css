@@ -235,6 +235,11 @@ tfoot td {
     width: 100%;
 }
 
+.sponsors-flex a {
+    text-decoration: none;
+    color: black;
+}
+
 .sponsor-stand_logo {
     height: 50px;
     display: flex;
